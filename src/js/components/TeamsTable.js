@@ -2,11 +2,11 @@ import React from "react";
 import Team from "./Team";
 
 export default class TeamsTable extends React.Component {
-    
-    getTeamsTable(){
+
+    getTeamsTable() {
         var items = [];
         this.props.teams.map((team) => {
-            if(team.gyms.length > 0){
+            if (team.gyms.length > 0) {
                 team.gyms.map((gym) => {
                     items.push(<Team team={team} gym={gym} addMarker={this.props.addMarker} />);
                 });
@@ -16,7 +16,7 @@ export default class TeamsTable extends React.Component {
         return items;
     }
 
-    render() {   
+    render() {
         var teams = this.getTeamsTable();
         return (
             <table>

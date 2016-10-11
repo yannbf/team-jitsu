@@ -1,28 +1,28 @@
 import React from 'react';
 import Maps from './Maps';
 import L from 'leaflet';
-  
+
 export default class Team extends React.Component {
-    
+
     // Gets gym location and puts a pin in the map with its info.
-    handleClick(){
+    handleClick() {
         var gym = this.props.gym;
-        if(gym){
-            var latLong = [gym.lat, gym.lng]; 
+        if (gym) {
+            var latLong = [gym.lat, gym.lng];
             var popupContent = '<h4 class="center"><a href=' + gym.facebook + ">" + gym.title + '</a></h4>' + '<p>' + gym.description + '</p>';
             this.props.addMarker(latLong, popupContent);
             this.scrollTo("header");
         }
-    } 
+    }
 
-    scrollTo(element){
+    scrollTo(element) {
         var element = document.getElementById(element)
         element.scrollIntoView(true);
     }
 
-    render() {   
-        let {full_path, name, leader} = this.props.team;
-        let {title, address} = this.props.gym;
+    render() {
+        let { full_path, name, leader } = this.props.team;
+        let { title, address } = this.props.gym;
 
         return (
             <tr class="pointer" onClick={this.handleClick.bind(this)}>
