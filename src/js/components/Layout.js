@@ -13,6 +13,7 @@ export default class Layout extends React.Component {
     }
 
     componentWillMount() {
+        // Fetching data from the API
         new Api().fetchData().then(function (data){
             this.setState({teams: data});
         }.bind(this)); 

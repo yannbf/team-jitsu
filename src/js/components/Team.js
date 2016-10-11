@@ -3,6 +3,8 @@ import Maps from './Maps';
 import L from 'leaflet';
   
 export default class Team extends React.Component {
+    
+    // Gets gym location and puts a pin in the map with its info.
     handleClick(){
         var gym = this.props.gym;
         if(gym){

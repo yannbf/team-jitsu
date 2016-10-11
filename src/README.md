@@ -1,4 +1,4 @@
-INTERESTING
+Articles to read:
 
 https://github.com/seatgeek/react-infinite
 

@@ -4,6 +4,10 @@
   overflow-x: hidden;
 }
 
+.loading{ 
+  width: 10vh;
+}
+
 .team-logo {
     width: auto;
     height: 50px;

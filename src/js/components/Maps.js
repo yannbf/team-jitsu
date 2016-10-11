@@ -68,7 +68,7 @@ var Map = React.createClass({
   },
   render(){
     let {teams} = this.props;
-    var table = <span>loading...</span>
+    var table = <img class="loading" src="http://natone.com.br/assets/images/loader.gif"/>
     if (teams != null) { 
         table = <TeamsTable teams={teams} addMarker={this.addMarker} map={this.map} />
     }

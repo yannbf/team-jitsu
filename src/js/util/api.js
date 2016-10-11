@@ -35,9 +35,8 @@ export default class Api {
     })
   }
 
-  getTeamInfo(id) { 
+  getTeamById(id) { 
     const apiURL = "http://jiujitsuteam.herokuapp.com/teams/" + id + ".json";
-    // get req to teams/id.json
     return new Promise((resolve, reject) => {
       fetch(apiURL, {
           method: 'get' 
@@ -60,46 +59,17 @@ export default class Api {
     });
   }
 
+  // Fetches data of jiujitsuteams.
+  // First it gets all teams ids from endpoint/teams.json
+  // Then it fetches info from all of the ids and returns then once all promises resolve.
   fetchData() {
     var that = this;
-
+    
     return new Promise((resolve, reject) => {
       that.getTeamIds().then(ids => {
-        resolve(Promise.all(ids.map(id => that.getTeamInfo(id))));
+        resolve(Promise.all(ids.map(id => that.getTeamById(id))));
         })
         .catch(error => reject("Fetching failed!" + error));
     });
-  }
-
-  
-
-  getMockData() {
-    var teams = [
-      {
-        id: 1,
-        name: "Teste",
-        nickname: "Testy",
-        image: "...",
-        gym: {
-          coach: "Iglesias",
-          address: "Rua Mota machado 20",
-          name: "Academasya",
-          latLong:[-3.734464116057717,-38.46957206726074]
-        },
-      },
-      {
-        id: 2,
-        name: "Teste2",
-        nickname: "asTesty",
-        image: "...",
-        gym: {
-          coach: "Johaness",
-          address: "Rua ministro eduardo 20",
-          name: "2Academya",
-          latLong:[-3.72464116057717,-38.46957206726074]
-        },
-      }
-    ]  
-    return teams;
-  }
+  } 
 }
